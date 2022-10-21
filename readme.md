@@ -157,8 +157,6 @@ A (hosted) service containing repositories of images which responds to the Regis
 
 ---
 
----
-
 ### Common Docker usages
 
  - Sandbox environment (develop, test, debug, educate)
