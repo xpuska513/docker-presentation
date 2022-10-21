@@ -1,15 +1,27 @@
 ![Docker logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_logo.png)
 
-## Docker for Developers - Introduction
+## Development Environments in Docker
+#### Kyryl Skobylko
+#### Senior Devops Engineer
+#### GlobalLogic
 
-#### [Python Meetup Thessaloniki](http://www.meetup.com/PyThess/), 15 April 2016
+<!-- #### [Python Meetup Thessaloniki](http://www.meetup.com/PyThess/), 15 April 2016 -->
 
-###### [TheodorosPloumis.com](http://www.theodorosploumis.com/en) / [@theoploumis](http://twitter.com/theoploumis)
-________________________
+<!-- ###### [TheodorosPloumis.com](http://www.theodorosploumis.com/en) / [@theoploumis](http://twitter.com/theoploumis) -->
+<!-- ________________________ -->
 
-###### Get them: [online presentation](http://theodorosploumis.github.io/docker-presentation/) / [source code](https://github.com/theodorosploumis/docker-presentation) / [docker image](https://hub.docker.com/r/tplcom/docker-presentation/)
+<!-- ###### Get them: [online presentation](http://theodorosploumis.github.io/docker-presentation/) / [source code](https://github.com/theodorosploumis/docker-presentation) / [docker image](https://hub.docker.com/r/tplcom/docker-presentation/) -->
 
 ###### Under [Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/) license.
+
+---
+
+### Agenda
+
+- Introduction to Docker
+- Use Cases
+- Developer Environments in Docker (Deep Dive)
+- Overall Results
 
 ---
 
@@ -33,6 +45,19 @@ ________________________
 ### Docker vs VMs
 
 ![Docker vs traditional Virtualization](https://image.slidesharecdn.com/why-docker-website-130719212914-phpapp01-131208123039-phpapp01/95/hypervisor-versus-linux-containers-with-docker-25-638.jpg)
+
+---
+### Docker vs VMs (meme format)
+![VM](https://ebs-integrator.com/wp-content/uploads/2021/07/VM-1.jpg)
+
+---
+### Docker vs VMs (meme format)
+![VM](https://ebs-integrator.com/wp-content/uploads/2021/07/Reasons-to-containerit.jpg)
+
+
+---
+### Docker vs VMs (meme format)
+![VM](https://ebs-integrator.com/wp-content/uploads/2021/07/DockerBorn.jpg)
 
 ---
 
@@ -59,21 +84,6 @@ ________________________
  - Microservices and integrations (APIs)
  - Simplify DevOps
  - Version control capabilities
-
----
-
-### Common Docker usages
-
- - Sandbox environment (develop, test, debug, educate)
- - Continuous Integration & Deployment
- - Scaling apps
- - Development collaboration
- - Infrastructure configuration
- - Local development
- - Multi-tier applications
- - PaaS, SaaS
-
-###### See the [survey results for 2016](https://www.docker.com/survey-2016)
 
 ---
 
@@ -130,32 +140,12 @@ A Client with a Daemon as also as the docker-compose tool. Usually referred simp
 
 ---
 
-### Docker machine
-
-![Docker machine logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_machine.png)
-
-A tool which makes it really easy to create Docker hosts on your computer,
-on cloud providers and inside your own data center.
-It creates servers, installs Docker on them, then configures the Docker client to talk to them.
-Required for Mac, Windows users.
-
----
-
 ### Docker compose
 
 ![Docker compose logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_compose.png)
 
 A tool for defining and running complex applications with Docker
 (eg a multi-container application) with a single file.
-
----
-
-### Docker swarm
-
-![Docker swarm logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_swarm.png)
-
-A native clustering tool for Docker. Swarm pools together several Docker
-hosts and exposes them as a single virtual Docker host. It scale up to multiple hosts.
 
 ---
 
@@ -167,13 +157,44 @@ A (hosted) service containing repositories of images which responds to the Regis
 
 ---
 
+---
+
+### Common Docker usages
+
+ - Sandbox environment (develop, test, debug, educate)
+ - Continuous Integration & Deployment
+ - Scaling apps
+ - Development collaboration
+ - Infrastructure configuration
+ - Local development
+ - Multi-tier applications
+ - PaaS, SaaS
+
+###### See the [survey results for 2022](https://www.docker.com/blog/key-insights-from-stack-overflows-2022-developer-survey/)
+
+---
+
+### Mine use cases
+
+- Production services
+    - Build software in Docker
+    - Deploy to Dockerhub and AWS's ECR
+    - Deploy to Kubernetes and Docker Swarm
+- Development
+    - Work within Docker Development Environment
+    - Able to start any part of the application stack with a single command
+- QA(Quality Assurance)/UX(User Experience)
+    - Automatically built images from Pull Requests
+
+---
+
 ### Steps of a Docker workflow
 
 ```
-docker run -i -t -d ubuntu:15.04 /bin/bash
+docker run -i -t -d ubuntu:20.04 /bin/bash
 ```
 
- - Pulls the ubuntu:15.04 [image](https://docs.docker.com/engine/userguide/containers/dockerimages/ "A read-only layer that is the base of your container. It can have a parent image to abstract away the more basic filesystem snapshot.") from the [registry](https://docs.docker.com/registry/ "The central place where all publicly published images live. You can search it, upload your images there and when you pull a docker image, it comes the repository/hub.")
+ - Pulls the ubuntu:20.04 [image](https://docs.docker.com/engine/userguide/containers/dockerimages/ "A read-only layer that is the base of your container. It can have a parent image to abstract away the more basic filesystem snapshot.") from the [registry](https://docs.docker.com/registry/ "The central place where all publicly published images live. You can search it, upload your images there and when you pull a docker image, it comes the repository/hub.")
  - Creates a new [container](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/ "A runnable instance of the image, basically it is a process isolated by docker that runs on top of the filesystem that an image provides.")
  - Allocates a filesystem and mounts a read-write [layer](https://docs.docker.com/engine/reference/glossary/#filesystem "A set of read-only files to provision the system. Think of a layer as a read only snapshot of the filesystem.")
  - Allocates a [network/bridge interface](https://www.wikiwand.com/en/Bridging_%28networking%29 "")
@@ -337,12 +358,12 @@ docker inspect -f "{{ .HostConfig.Links }}" drupal_example
 
 ### Example: Using Docker Compose
 
-Let's create a Drupal app with [docker-compose.yml](https://github.com/theodorosploumis/docker-presentation/blob/gh-pages/examples/docker-compose/docker-compose.yml)
+Let's create a Airbyte app with [docker-compose.yml](https://github.com/airbytehq/airbyte/blob/master/docker-compose.yaml)
 
 ```
 cd ~/Docker-presentation
-git clone git@github.com:theodorosploumis/docker-presentation.git
-cd docker-presentation/examples/docker-compose
+git clone https://github.com/airbytehq/airbyte.git
+cd airbyte
 
 // Run docker-compose using the docker-compose.yml
 cat docker-compose.yml
@@ -355,21 +376,21 @@ docker-compose up -d
 
 ```
 cd ~/Docker-presentation
-git clone git@github.com:theodorosploumis/docker-presentation.git
+git https://github.com/xpuska513/docker-presentation.git
 cd docker-presentation
 
 docker pull nimmis/alpine-apache
-docker build -t tplcom/docker-presentation .
+docker build -t xpuska/docker-presentation .
 
 // Test it
 docker run -itd --name docker_presentation \
            -p 8480:80 \
-           tplcom/docker-presentation
+           xpuska/docker-presentation
 
 // Open http://localhost:8480, you should see this presentation
 
 // Push it on the hub.docker.com
-docker push tplcom/docker-presentation
+docker push xpuska/docker-presentation
 ```
 
 ---
@@ -511,8 +532,4 @@ There are known best practices (see a list at [examples/tips](https://github.com
 
 ![Pythons over Docker!](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_logo.png)
 
-[Review this presentation](https://goo.gl/lkau9t)
 
-> Next: Docker in production, Scaling, Private registries, PaaS.
-
-###### In this presentation I have used [oh my zsh](http://ohmyz.sh/), [docker 1.11.1](https://github.com/docker/docker/releases/tag/v1.11.1), [wharfee](https://github.com/j-bennet/wharfee) and [dry](https://github.com/moncho/dry).
