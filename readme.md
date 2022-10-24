@@ -1,17 +1,19 @@
+---
+theme : "solarized"
+transition: "slide"
+highlightTheme: "monokai"
+logoImg: "https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_logo.png"
+slideNumber: false
+title: "VSCode Reveal intro"
+---
+
 ![Docker logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_logo.png)
 
 ## Development Environments in Docker
-##### Kyryl Skobylko
-##### Senior Devops Engineer
+---
+Kyryl Skobylko
+###### Senior Devops Engineer
 
-<!-- #### [Python Meetup Thessaloniki](http://www.meetup.com/PyThess/), 15 April 2016 -->
-
-<!-- ###### [TheodorosPloumis.com](http://www.theodorosploumis.com/en) / [@theoploumis](http://twitter.com/theoploumis) -->
-<!-- ________________________ -->
-
-<!-- ###### Get them: [online presentation](http://theodorosploumis.github.io/docker-presentation/) / [source code](https://github.com/theodorosploumis/docker-presentation) / [docker image](https://hub.docker.com/r/tplcom/docker-presentation/) -->
-
-###### Under [Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/) license.
 
 ---
 
@@ -39,6 +41,7 @@
 
 > Docker allows you to package an application with all of its dependencies into a standardized unit for software development.
 
+
 ---
 
 ### Docker vs VMs
@@ -46,16 +49,19 @@
 ![Docker vs traditional Virtualization](https://image.slidesharecdn.com/why-docker-website-130719212914-phpapp01-131208123039-phpapp01/95/hypervisor-versus-linux-containers-with-docker-25-638.jpg)
 
 ---
+
 ### Docker vs VMs (meme format)
 ![VM](https://ebs-integrator.com/wp-content/uploads/2021/07/VM-1.jpg)
 
 ---
-### Docker vs VMs (meme format)
+
+### Docker vs VMs (meme format)2
 ![VM](https://ebs-integrator.com/wp-content/uploads/2021/07/Reasons-to-containerit.jpg)
 
 
 ---
-### Docker vs VMs (meme format)
+
+### Docker vs VMs (meme format)3
 ![VM](https://ebs-integrator.com/wp-content/uploads/2021/07/DockerBorn.jpg)
 
 ---

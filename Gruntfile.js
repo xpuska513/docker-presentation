@@ -4,16 +4,16 @@ module.exports = function(grunt) {
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		meta: {
-			banner:
-				'/*!\n' +
-				' * reveal.js <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)\n' +
-				' * http://lab.hakim.se/reveal-js\n' +
-				' * MIT licensed\n' +
-				' *\n' +
-				' * Copyright (C) 2015 Hakim El Hattab, http://hakim.se\n' +
-				' */'
-		},
+		// meta: {
+		// 	banner:
+		// 		'/*!\n' +
+		// 		' * reveal.js <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)\n' +
+		// 		' * http://lab.hakim.se/reveal-js\n' +
+		// 		' * MIT licensed\n' +
+		// 		' *\n' +
+		// 		' * Copyright (C) 2020 xpuska, http://hakim.se\n' +
+		// 		' */'
+		// },
 
 		qunit: {
 			files: [ 'test/*.html' ]
@@ -30,6 +30,9 @@ module.exports = function(grunt) {
 		},
 
 		sass: {
+			options: {
+				implementation: sass,
+			},
 			core: {
 				files: {
 					'css/reveal.css': 'css/reveal.scss',
